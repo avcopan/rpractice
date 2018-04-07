@@ -8,11 +8,11 @@ d <- readr::read_delim('memory.txt', delim=' ',
                        col_types=c(col_double(), col_double()))
 d <- dplyr::mutate(d, dt=t-t[[1]])
 print(typeof(d))
-print(attributes(d))
 print(d)
 
 p <- (ggplot2::ggplot(d) +
-      ggplot2::geom_line(mapping=ggplot2::aes_(x=quote(dt), y=quote(m)), colour="red") +
+      ggplot2::geom_line(mapping=ggplot2::aes_(x=quote(dt), y=quote(m)),
+                         colour="red") +
       ggplot2::xlab('time (s)') +
       ggplot2::ylab('memory (mb)') +
       ggthemes::theme_base())
